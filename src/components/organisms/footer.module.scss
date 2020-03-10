@@ -1,0 +1,9 @@
+.footer {
+  font-weight: 900;
+  color: $crl-dark-grey;
+  text-align: center;
+
+  @include pc() {
+    padding: 90px 0 30px;
+  }
+}

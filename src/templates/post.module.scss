@@ -1,0 +1,96 @@
+.head {
+  font-weight: 900;
+}
+
+.hdg1 {
+
+  @include pc() {
+    font-size: 4.8rem;
+  }
+}
+
+.date {
+  color: $crl-dark-grey;
+  @include pc() {
+    margin-top: 28px;
+    font-size: 1.3rem;
+  }
+}
+
+.thumb {
+
+  @include pc() {
+    margin-top: 24px;
+  }
+}
+
+.article {
+
+  @include pc() {
+    padding: 36px 0 60px;
+    max-width: 756px;
+    width: percentage(756/940);
+  }
+
+  & > :last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    position: relative;
+    font-weight: 900;
+    border-bottom: 1px dashed $crl-dark-grey;
+
+    @include pc() {
+      margin: 50px 0 30px;
+      padding-bottom: 12px;
+      font-size: 2.8rem;
+    }
+  }
+
+  ul {
+    margin: 50px 0 20px 30px;
+  }
+
+  li {
+    list-style-type: disc;
+
+    @include pc() {
+      font-size: 1.6rem;
+    }
+  }
+
+  strong {
+    color: #FB5A5A;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    pointer-events: none;
+  }
+
+  code {
+
+    @include pc() {
+      font-size: 1.4rem;
+    }
+
+  }
+}
+
+.tabWrap {
+  @include pc() {
+    margin-top: 100px;
+  }
+}
+
+.prifileWrap {
+  @include pc() {
+    margin-top: 100px;
+  }
+}

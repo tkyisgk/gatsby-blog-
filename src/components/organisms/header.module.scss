@@ -1,0 +1,34 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: $crl-black;
+  z-index: 100;
+
+  @include sp() {
+    height: 35px;
+  }
+
+}
+
+.inr {
+  display: flex;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  padding: 0 58px;
+}
+
+.hdg {
+  margin: 0;
+}
+
+.link {
+  display: block;
+  width: 115px;
+  height: 12px;
+  color: white;
+  text-decoration: none
+}

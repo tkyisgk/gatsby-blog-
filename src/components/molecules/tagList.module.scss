@@ -1,0 +1,15 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.tag {
+
+  &:not(:first-child) {
+
+    @include pc() {
+      margin-left: 14px;
+    }
+  }
+}

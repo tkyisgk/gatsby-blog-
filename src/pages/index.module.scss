@@ -1,4 +1,36 @@
-.container {
-  max-width: 300px;
-  margin-bottom: 1.45rem;
+.hdg2 {
+  font-weight: 900;
+
+  @include pc() {
+    font-size: 3.4rem;
+  }
+}
+
+.cardWrapLarge {
+
+  @include pc() {
+    margin-top: 40px;
+  }
+}
+
+.cardWrapMedium {
+
+  @include pc() {
+    margin-top: 40px; 
+  }
+
+}
+
+.sectionProfile {
+
+  @include pc() {
+    margin-top: 56px;
+  }
+}
+
+.profileWrap {
+
+  @include pc() {
+    margin-top: 36px;
+  }
 }

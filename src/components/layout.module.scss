@@ -1,5 +1,10 @@
 .container {
   margin: 0 auto;
-  max-width: 960px;
+  max-width: 940px;
   padding: 0 1.0875rem 1.45rem;
+
+  @include pc() {
+    margin-top: 70px;
+    padding: 50px 0;
+  }
 }

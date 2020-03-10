@@ -4,12 +4,21 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `TAKUYA ISHIGAKI`,
-    description: `ブログです`,
-    author: `@gatsbyjs`,
+    title: `WEB AND ME`,
+    description: `東京都内のウェブエンジニア石垣琢也(いしがきたくや)のブログ`,
+    author: `takuya ishigaki`,
   },
   plugins: [
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass-resources`,
+      options: {
+        resources: [
+          `${__dirname}/src/styles/mixins/index.scss`,
+          `${__dirname}/src/styles/vars/index.scss`
+        ]
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -26,8 +35,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#000`,
+        theme_color: `#000`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -39,6 +48,26 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         downloadLocal: true,
       },
-    }
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-code-titles'
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {
+              classPrefix: "language-",
+              inlineCodeMarker: null,
+              aliases: {},
+              showLineNumbers: true,
+              noInlineHighlight: false,
+            },
+          },
+        ],
+      },
+    },
   ],
 }

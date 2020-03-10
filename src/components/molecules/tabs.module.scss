@@ -1,0 +1,32 @@
+.tabs {
+  display: flex;
+  text-align: center;
+
+  @include pc() {
+    margin-bottom: 40px;
+  }
+}
+
+.tab {
+  width: 100%;
+  font-weight: 900;
+  color: $crl-light-grey;
+  background-color: $crl-black;
+  border: 1px solid $crl-black;
+
+  &.active {
+    color: $crl-black;
+    background-color: transparent;
+    pointer-events: none;
+  }
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  @include pc {
+    height: 62px;
+    line-height: 62px;
+    font-size: 1.6rem;
+  }
+}

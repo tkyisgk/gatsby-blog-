@@ -1,0 +1,26 @@
+.list {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include pc() {
+
+    &::after {
+      content: "";
+      display: block;
+      width: percentage(290/940);
+    }
+  }
+}
+
+.item {
+  width: auto;
+
+  &.isMedium {
+    width: percentage(290/940)
+  }
+
+  &.isLarge {
+    width: percentage(450/940)
+  }
+}

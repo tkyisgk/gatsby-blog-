@@ -1,0 +1,48 @@
+.wrap {
+  display: flex;
+}
+
+.thumb {
+  border-radius: 50%;
+  background-color: #fff;
+
+  @include pc() {
+    min-width: 78px;
+    height: 78px;
+  }
+}
+
+.txt {
+
+  @include pc() {
+    padding-left: 30px;
+  }
+}
+
+.hdg {
+  font-weight: 900;
+
+  @include pc() {
+    font-size: 1.8rem;
+  }
+}
+
+.desc {
+  line-height: 1.5;
+
+  @include pc() {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
+
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+
+  @include pc() {
+    margin-top: 10px;
+    font-size: 1.3rem;
+  }
+}

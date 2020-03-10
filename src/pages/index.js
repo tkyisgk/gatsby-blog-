@@ -1,22 +1,30 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 import styles from "./index.module.scss"
+
+import CardList from '../components/molecules/cardList'
+import ProfileBox from '../components/molecules/profileBox'
 
 export const query = graphql`
   query {
     allContentfulBlog(
-      limit: 3
+      sort: {order: DESC, fields: createdAt}
     ) {
       edges {
         node {
-          title
+          title,
+          slug,
+          createdAt,
+          updatedAt,
+          body {
+            body
+          },
           thumbnail {
-            fluid {
-              src
+            localFile {
+              name
             }
           }
         }
@@ -26,27 +34,34 @@ export const query = graphql`
 `
 
 export default ({ data }) => {
-  console.log(data.allContentfulBlog.edges)
   const blogList = data.allContentfulBlog.edges
+  const largeList = blogList.slice(0, 2)
+  const mediumList = blogList.slice(2)
 
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <div className={styles.container}>
-        <Image filename="gatsby-astronaut" />
-      </div>
-      <ul className={styles.list}>
-        {blogList.map((item, key) => (
-          <li className={styles.item} key={item.node.id}>
-            <h2>{item.node.title}</h2>
-            <img src={item.node.thumbnail.fluid.src} alt="" />
-          </li>
-        ))}
-      </ul>
-      <Link to="/page-2/">Go to page 2</Link>
+      <section className={styles.sectionBlog}>
+        <h2 className={styles.hdg2}>Blog</h2>
+        <div className={styles.cardWrapLarge}>
+          <CardList
+            postList={largeList}
+            cardSize="Large"
+          ></CardList>
+        </div>
+        <div className={styles.cardWrapMedium}>
+          <CardList
+            postList={mediumList}
+          ></CardList>
+        </div>
+      </section>
+
+      <section className={styles.sectionProfile}>
+        <h2 className={styles.hdg2}>Profile</h2>
+        <div className={styles.profileWrap}>
+          <ProfileBox></ProfileBox>
+        </div>
+      </section>
     </Layout>
   )
 }

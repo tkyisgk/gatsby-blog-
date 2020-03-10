@@ -1,0 +1,11 @@
+.link {
+  display: block;
+  color: $crl-light-grey;
+  font-weight: 900;
+  background-color: $crl-black;
+
+  @include pc() {
+    padding: 11px 18px;
+    font-size: 1.3rem;
+  }
+}

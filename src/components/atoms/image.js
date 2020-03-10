@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 // 画像ファイルパスをプロパティに取るようなコンポーネントを定義
-export default ({ filename }) => (
+export default ({ filename, alt }) => (
 
   // ページじゃないコンポーネントでもGraphQLが使えるように
   // StaticQueryタグを使う
@@ -41,7 +41,7 @@ export default ({ filename }) => (
 
       // Imgタグでgatsby-imageで最適化された画像を表示する
       const imageSizes = image.node.childImageSharp.sizes
-      return <Img sizes={imageSizes} />
+      return <Img sizes={imageSizes} alt={alt} />
     }}
   />
 )
