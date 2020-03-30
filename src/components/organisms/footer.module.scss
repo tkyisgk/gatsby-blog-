@@ -6,4 +6,8 @@
   @include pc() {
     padding: 90px 0 30px;
   }
+
+  @include sp() {
+    padding: 45px 0 15px;
+  }
 }

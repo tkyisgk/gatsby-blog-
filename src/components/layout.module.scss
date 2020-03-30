@@ -1,10 +1,18 @@
 .container {
+  padding: 0 4%;
+}
+
+.inr {
   margin: 0 auto;
   max-width: 940px;
-  padding: 0 1.0875rem 1.45rem;
 
   @include pc() {
     margin-top: 70px;
     padding: 50px 0;
+  }
+
+  @include sp() {
+    margin-top: 50px;
+    padding: 25px 0;
   }
 }

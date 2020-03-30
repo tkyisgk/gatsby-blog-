@@ -5,15 +5,25 @@
 .hdg1 {
 
   @include pc() {
-    font-size: 4.8rem;
+    font-size: 5.6rem;
+  }
+
+  @include sp() {
+    font-size: 3.2rem;
   }
 }
 
 .date {
   color: $crl-dark-grey;
+
   @include pc() {
     margin-top: 28px;
     font-size: 1.3rem;
+  }
+
+  @include sp() {
+    margin-top: 14px;
+    font-size: 1.1rem;
   }
 }
 
@@ -22,14 +32,43 @@
   @include pc() {
     margin-top: 24px;
   }
+
+  @include sp() {
+    margin-top: 12px;
+  }
+}
+
+.content {
+  display: flex;
+
+  @include sp() {
+    flex-direction: column;
+  }
+}
+
+.side {
+
+  @include sp() {
+    margin-top: 30px;
+  }
+
+  @include pc() {
+    width: percentage(184/940);
+  } 
+
 }
 
 .article {
 
   @include pc() {
+    flex-grow: 1;
     padding: 36px 0 60px;
     max-width: 756px;
-    width: percentage(756/940);
+  }
+
+  @include sp() {
+    padding: 18px 0 30px;
+    width: 100%;
   }
 
   & > :last-child {
@@ -37,7 +76,12 @@
   }
 
   p {
-    margin-bottom: 20px;
+    @include pc() {
+      margin-bottom: 20px;
+    }
+    @include sp() {
+      margin-bottom: 10px;
+    }
   }
 
   h2 {
@@ -48,19 +92,34 @@
     @include pc() {
       margin: 50px 0 30px;
       padding-bottom: 12px;
-      font-size: 2.8rem;
+      font-size: 3.2rem;
+    }
+
+    @include sp() {
+      margin: 25px 0 15px;
+      padding-bottom: 6px;
+      font-size: 2.2rem;
     }
   }
 
   ul {
-    margin: 50px 0 20px 30px;
+    @include pc() {
+      margin: 50px 0 20px 30px;
+    }
+    @include sp() {
+      margin: 25px 0 10px 15px;
+    }
   }
 
   li {
+    line-height: 1.6;
     list-style-type: disc;
 
     @include pc() {
       font-size: 1.6rem;
+    }
+    @include sp() {
+      font-size: 1.3rem;
     }
   }
 
@@ -79,6 +138,9 @@
     @include pc() {
       font-size: 1.4rem;
     }
+    @include sp() {
+      font-size: 1.1rem;
+    }
 
   }
 }
@@ -87,10 +149,17 @@
   @include pc() {
     margin-top: 100px;
   }
+  @include sp() {
+    margin-top: 50px;
+  }
 }
 
 .prifileWrap {
   @include pc() {
     margin-top: 100px;
+  }
+
+  @include sp() {
+    margin-top: 50px;
   }
 }

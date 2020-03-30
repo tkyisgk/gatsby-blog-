@@ -6,12 +6,19 @@
 
 .gatsby-code-title {
   display: inline-block;
-  padding: 0.5em 1em;
-  font-size: 1.4rem;
   font-weight: 900;
   font-style: italic;
   color: #EFEFEF;
   background-color: $crl-black;
+
+  @include pc() {
+    padding: 0.5em 1em;
+    font-size: 1.4rem;
+  }
+  @include sp() {
+    padding: 0.25em 0.5em;
+    font-size: 1.1rem;
+  }
 }
 
 .gatsby-highlight {
@@ -44,8 +51,14 @@ pre[class*="language-"] {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 2em;
 	overflow: auto;
+
+  @include pc() {
+    padding: 2em;
+  }
+  @include sp() {
+    padding: 1em;
+  }
 }
 
 :not(pre) > code[class*="language-"],

@@ -11,5 +11,8 @@
     @include pc() {
       margin-left: 14px;
     }
+    @include sp() {
+      margin-left: 7px;
+    }
   }
 }

@@ -8,6 +8,10 @@
   @include pc() {
     box-shadow: 0 3px 10px 0px rgba(0, 0, 0, 0.5);
   }
+
+  @include sp() {
+    box-shadow: 0 1.5px 5px 0px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .thumb {
@@ -33,6 +37,10 @@
   @include pc() {
     padding: 20px;
   }
+
+  @include sp() {
+    padding: 8px;
+  }
 }
 
 .title {
@@ -41,7 +49,11 @@
   line-height: 1.5;
 
   @include pc() {
-    font-size: 16px;
+    font-size: 2.0rem;
+  }
+
+  @include sp() {
+    font-size: 1.2rem;
   }
 }
 
@@ -50,7 +62,12 @@
 
   @include pc() {
     margin-top: 60px;
-    font-size: 14px;
+    font-size: 1.4rem;
   }
+
+  @include sp() {
+    margin-top: 30px;
+    font-size: 0.9rem;
+  } 
 
 }

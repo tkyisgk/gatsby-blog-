@@ -3,6 +3,7 @@ import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/atoms/image"
+import ShareSNS from '../components/molecules/shareSNS'
 import ProfileBox from '../components/molecules/profileBox'
 import TagList from '../components/molecules/tagList'
 import TabPostList from '../components/organisms/tabPostList'
@@ -84,7 +85,9 @@ export default ({ data }) => {
               <TagList tagList={data.contentfulBlog.tags}></TagList>
             </div>
           </main>
-          <aside className={styles.side}></aside>
+          <aside className={styles.side}>
+            <ShareSNS />
+          </aside>
         </div>
 
       </article>
@@ -93,7 +96,7 @@ export default ({ data }) => {
         <TabPostList postList={data.allContentfulBlog.edges} activeTag={data.contentfulBlog.tags[0]}></TabPostList>
       </div>
       <div className={styles.prifileWrap}>
-        <ProfileBox></ProfileBox>
+        <ProfileBox />
       </div>
     </Layout>
   )

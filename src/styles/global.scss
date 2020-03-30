@@ -13,12 +13,24 @@ body {
 }
 
 p {
-  font-size: 1.6rem;
   line-height: 2;
+
+  @include pc() {
+    font-size: 1.6rem;
+  }
+  @include sp() {
+    font-size: 1.3rem;
+  }
 }
 
 a {
   color: $crl-black;
+
+  @include pc() {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
 
 button {
@@ -29,4 +41,10 @@ button {
   cursor: pointer;
   outline: none;
   appearance: none;
+
+  @include pc() {
+    &:hover {
+      opacity: 0.6;
+    }
+  }
 }
