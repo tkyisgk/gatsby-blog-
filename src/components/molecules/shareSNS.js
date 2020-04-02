@@ -22,19 +22,25 @@ function ShareSNS({title}) {
     `
   )
 
-  return (
-    <div className={styles.shareWrap}>
-      <a className={styles.link} href={`https://twitter.com/share?url=${window.location.href}&text=${title} | ${site.siteMetadata.title}`} target="_blank" rel="noreferrer noopener">
-        <Twitter iconColor={`#EFEFEF`} bgColor={`#858585`} />
-      </a>
-      <a className={styles.link} href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" rel="noreferrer noopener">
-        <Facebook iconColor={`#EFEFEF`} bgColor={`#858585`} />
-      </a>
-      <a className={styles.link} href={`https://b.hatena.ne.jp/add?mode=confirm&url=${window.location.href}&title=${title} | ${site.siteMetadata.title}" target="_blank" rel="nofollow">はてなブックマークでシェアする</a>`} target="_blank" rel="noreferrer noopener">
-        <Hatena iconColor={`#EFEFEF`} bgColor={`#858585`} />
-      </a>
-    </div>
-  )
+  if (typeof window !== 'undefined') {
+
+    return (
+      <div className={styles.shareWrap}>
+        <a className={styles.link} href={`https://twitter.com/share?url=${window.location.href}&text=${title} | ${site.siteMetadata.title}`} target="_blank" rel="noreferrer noopener">
+          <Twitter iconColor={`#EFEFEF`} bgColor={`#858585`} />
+        </a>
+        <a className={styles.link} href={`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`} target="_blank" rel="noreferrer noopener">
+          <Facebook iconColor={`#EFEFEF`} bgColor={`#858585`} />
+        </a>
+        <a className={styles.link} href={`https://b.hatena.ne.jp/add?mode=confirm&url=${window.location.href}&title=${title} | ${site.siteMetadata.title}" target="_blank" rel="nofollow">はてなブックマークでシェアする</a>`} target="_blank" rel="noreferrer noopener">
+          <Hatena iconColor={`#EFEFEF`} bgColor={`#858585`} />
+        </a>
+      </div>
+    )
+
+  } else {
+    return null
+  }
 }
 
 ShareSNS.propTypes = {
