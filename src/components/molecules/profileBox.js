@@ -16,8 +16,8 @@ const ProfileBox = () => {
         <h3 className={styles.hdg}>石垣 琢也</h3>
         <p className={styles.desc}>
           都内在住で、広告関連のweb制作会社に勤めるフロントエンドエンジニアです。<br />
-        Javascriptが得意で、Vue.jsやReact.jsを書くことが好きです。コーヒーを飲み、音楽を聴きながら、コードを書くのが好きです。
-      </p>
+          Javascriptが好きです。コーヒーと音楽とプログラミングが好きです。
+        </p>
         <a
           href="http://tkyisgk.com/"
           target="_blank"

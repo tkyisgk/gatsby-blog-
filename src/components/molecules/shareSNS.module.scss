@@ -1,5 +1,6 @@
 .shareWrap {
   display: flex;
+  width: 100%;
 
   @include pc() {
     flex-direction: column;
