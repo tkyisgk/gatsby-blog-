@@ -2,14 +2,30 @@
   display: flex;
   flex-wrap: wrap;
   list-style-type: none;
+
+  @include pc() {
+    margin-top: -14px;
+  }
+  @include sp() {
+    margin-top: -7px;
+  }
 }
 
 .tag {
 
-  &:not(:first-child) {
+  @include pc() {
+    margin-top: 14px;
 
-    @include pc() {
-      margin-left: 14px;
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+  }
+
+  @include sp() {
+    margin-top: 7px;
+
+    &:not(:last-child) {
+      margin-right: 7px;
     }
   }
 }

@@ -8,7 +8,7 @@
   z-index: 100;
 
   @include sp() {
-    height: 35px;
+    height: 50px;
   }
 
 }
@@ -18,7 +18,14 @@
   align-items: center;
   width: inherit;
   height: inherit;
-  padding: 0 58px;
+
+  @include pc() {
+    padding: 0 58px;
+  }
+
+  @include sp() {
+    padding: 0 4%;
+  }
 }
 
 .hdg {
@@ -27,8 +34,16 @@
 
 .link {
   display: block;
-  width: 115px;
-  height: 12px;
   color: white;
-  text-decoration: none
+  text-decoration: none;
+
+  @include pc() {
+    width: 115px;
+    height: 12px;
+  }
+
+  @include sp() {
+    width: 105px;
+    height: 12px;
+  }
 }

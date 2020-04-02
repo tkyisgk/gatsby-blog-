@@ -6,7 +6,7 @@ import styles from './header.module.scss'
 import Logo from '../atoms/logo'
 
 const Header = ({ siteTitle }) => (
-  <header className={styles.header}>
+  <header className={styles.header} id="js-header">
     <div className={styles.inr}>
       <h1 className={styles.hdg}>
         <Link to="/" className={styles.link}>

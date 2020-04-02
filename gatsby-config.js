@@ -6,7 +6,8 @@ module.exports = {
   siteMetadata: {
     title: `WEB AND ME`,
     description: `東京都内のウェブエンジニア石垣琢也(いしがきたくや)のブログ`,
-    author: `takuya ishigaki`,
+    author: `@web_des_igner`,
+    image: `${__dirname}/static/assets/ogp.jpg`
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -35,10 +36,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#000`,
-        theme_color: `#000`,
+        background_color: `#1B1717`,
+        theme_color: `#1B1717`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     {

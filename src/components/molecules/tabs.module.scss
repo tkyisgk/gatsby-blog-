@@ -5,6 +5,10 @@
   @include pc() {
     margin-bottom: 40px;
   }
+  @include sp() {
+    margin-bottom: 20px;
+  }
+  
 }
 
 .tab {
@@ -24,9 +28,14 @@
     border-left: none;
   }
 
-  @include pc {
+  @include pc() {
     height: 62px;
     line-height: 62px;
     font-size: 1.6rem;
+  }
+  @include sp() {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.3rem;
   }
 }

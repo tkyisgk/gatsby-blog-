@@ -17,10 +17,42 @@
   width: auto;
 
   &.isMedium {
-    width: percentage(290/940)
+
+    @include pc() {
+      width: percentage(290/940);
+
+      &:nth-child(4) {
+        margin-top: 40px;
+      }
+    }
+
+    @include sp() {
+      width: calc(50% - 7.5px);
+
+      &:nth-child(3) {
+        margin-top: 25px;
+      }
+    }
   }
 
   &.isLarge {
-    width: percentage(450/940)
+
+    @include pc() {
+      width: percentage(450/940);
+
+      &:nth-child(3) {
+        margin-top: 40px;
+      }
+
+    }
+
+    @include sp() {
+      width: calc(50% - 7.5px);
+
+      &:nth-child(3) {
+        margin-top: 25px;
+      }
+
+    }
   }
 }

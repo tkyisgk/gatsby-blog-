@@ -8,4 +8,8 @@
     padding: 11px 18px;
     font-size: 1.3rem;
   }
+  @include sp() {
+    padding: 9px;
+    font-size: 1.1rem;
+  }
 }

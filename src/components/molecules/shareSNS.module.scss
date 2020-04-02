@@ -1,0 +1,33 @@
+.shareWrap {
+  display: flex;
+  width: 100%;
+
+  @include pc() {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.link {
+  display: inline-block;
+  padding: 3px;
+  width: 27px;
+  height: 27px;
+
+  @include pc() {
+    margin-top: 20px;
+
+    &:not(:first-child) {
+      margin-top: 14px;
+    }
+
+  }
+
+  @include sp() {
+
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+
+  }
+}
