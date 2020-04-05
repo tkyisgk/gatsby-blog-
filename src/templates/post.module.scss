@@ -64,7 +64,7 @@
   @include pc() {
     flex-grow: 1;
     padding: 36px 0 60px;
-    max-width: 756px;
+    width: 756px;
   }
 
   @include sp() {

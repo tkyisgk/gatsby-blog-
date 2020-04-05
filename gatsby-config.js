@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     title: `WEB AND ME`,
-    description: `東京都内のウェブエンジニア石垣琢也(いしがきたくや)のブログ`,
+    description: `WEBと私の成長日記`,
     author: `@web_des_igner`,
     image: `${__dirname}/static/assets/ogp.jpg`
   },
@@ -68,6 +68,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // The property ID; the tracking code won't be generated without it
+        trackingId: `UA-111158075-1`
       },
     },
   ],
