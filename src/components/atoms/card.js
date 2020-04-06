@@ -25,7 +25,7 @@ const Card = ({ post, cardSize }) => {
       </div>
       <div className={styles.txtInr}>
         <h3 className={styles.title}>{post.node.title}</h3>
-        <span className={styles.date}>{dateFomatter(post.node.updatedAt)}</span>
+        <span className={styles.date}>{dateFomatter(post.node.createdAt)}</span>
       </div>
     </Link>
   )

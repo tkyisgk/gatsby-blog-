@@ -47,23 +47,23 @@ class TabWrap extends Component {
   }
 }
 
-const TabPostList = ({ postList, activeTag }) => {
+const TabPostList = ({ postList, activeTag, activeId }) => {
   const getLatest = () => {
-    return postList.slice(0, 3)
+    return postList.filter(post => post.node.id !== activeId).slice(0, 3)
   }
 
   const getRelated = () => {
-    return (postList.filter(post => post.node.tags[0] === activeTag)).slice(0, 3)
+    return postList.filter(post => post.node.tags[0] === activeTag && post.node.id !== activeId).slice(0, 3)
   }
 
   return (
     <TabWrap>
-      <TabWrap.Tabs></TabWrap.Tabs>
+      <TabWrap.Tabs />
       <TabWrap.Latest>
-        <CardList postList={getLatest()}></CardList>
+        <CardList postList={getLatest()} />
       </TabWrap.Latest>
       <TabWrap.Related>
-        <CardList postList={getRelated()}></CardList>
+        <CardList postList={getRelated()} />
       </TabWrap.Related>
     </TabWrap>
   )
@@ -71,12 +71,14 @@ const TabPostList = ({ postList, activeTag }) => {
 
 TabPostList.propTypes = {
   postList: PropTypes.array,
-  activeTag: PropTypes.string
+  activeTag: PropTypes.string,
+  activeId: PropTypes.string,
 }
 
 TabPostList.defaultProps = {
   postList: [],
-  activeTag: ''
+  activeTag: '',
+  activeId: ''
 }
 
 export default TabPostList

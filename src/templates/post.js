@@ -117,6 +117,14 @@ class Posts extends Component {
       return `${year}.${month}.${day}`
     }
 
+    const createUpdateDate = () => {
+      if (this.data.contentfulBlog.createdAt.split('T')[0] !== this.data.contentfulBlog.updatedAt.split('T')[0]) {
+        return (
+          <span className={styles.updateDate}>(更新日:{dateFomatter(this.data.contentfulBlog.updatedAt)})</span>
+        )
+      }
+    }
+
     return (
       <Layout>
         <SEO title={this.data.contentfulBlog.title} />
@@ -125,7 +133,10 @@ class Posts extends Component {
 
           <div className={styles.head}>
             <h1 className={styles.hdg1}>{this.data.contentfulBlog.title}</h1>
-            <p className={styles.date}>{dateFomatter(this.data.contentfulBlog.updatedAt)}</p>
+            <p className={styles.date}>
+              {dateFomatter(this.data.contentfulBlog.createdAt)}
+              {createUpdateDate()}
+            </p>
             <div className={styles.thumb}>
               <Image filename={this.data.contentfulBlog.thumbnail.localFile.name} />
             </div>
@@ -136,7 +147,7 @@ class Posts extends Component {
               <div className={styles.article} dangerouslySetInnerHTML={{ __html: this.data.contentfulBlog.body.childMarkdownRemark.html }} />
 
               <div className={styles.catWrap}>
-                <TagList tagList={this.data.contentfulBlog.tags}></TagList>
+                <TagList tagList={this.data.contentfulBlog.tags} />
               </div>
             </main>
             <aside className={styles.side} id="js-aside">
@@ -147,7 +158,7 @@ class Posts extends Component {
         </article>
 
         <div className={styles.tabWrap}>
-          <TabPostList postList={this.data.allContentfulBlog.edges} activeTag={this.data.contentfulBlog.tags[0]}></TabPostList>
+          <TabPostList postList={this.data.allContentfulBlog.edges} activeTag={this.data.contentfulBlog.tags[0]} activeId={this.data.contentfulBlog.id} />
         </div>
         <div className={styles.prifileWrap}>
           <ProfileBox />

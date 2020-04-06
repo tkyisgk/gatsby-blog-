@@ -10,10 +10,7 @@ const Header = ({ siteTitle }) => (
     <div className={styles.inr}>
       <h1 className={styles.hdg}>
         <Link to="/" className={styles.link}>
-          <Logo
-            siteTitle={siteTitle}
-            color="#EFEFEF"
-          ></Logo>
+          <Logo siteTitle={siteTitle} color="#EFEFEF" />
         </Link>
       </h1>
     </div>
