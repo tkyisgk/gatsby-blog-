@@ -27,6 +27,17 @@
   }
 }
 
+.updateDate {
+  display: inline-block;
+
+  @include pc() {
+    margin-left: 10px;
+  }
+  @include sp() {
+    margin-left: 5px;
+  }
+}
+
 .thumb {
 
   @include pc() {

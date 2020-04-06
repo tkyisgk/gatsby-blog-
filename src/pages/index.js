@@ -44,22 +44,17 @@ export default ({ data }) => {
       <section className={styles.sectionBlog}>
         <h2 className={styles.hdg2}>Blog</h2>
         <div className={styles.cardWrapLarge}>
-          <CardList
-            postList={largeList}
-            cardSize="Large"
-          ></CardList>
+          <CardList postList={largeList} cardSize="Large" />
         </div>
         <div className={styles.cardWrapMedium}>
-          <CardList
-            postList={mediumList}
-          ></CardList>
+          <CardList postList={mediumList} />
         </div>
       </section>
 
       <section className={styles.sectionProfile}>
         <h2 className={styles.hdg2}>Profile</h2>
         <div className={styles.profileWrap}>
-          <ProfileBox></ProfileBox>
+          <ProfileBox />
         </div>
       </section>
     </Layout>
