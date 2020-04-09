@@ -127,7 +127,7 @@ class Posts extends Component {
 
     return (
       <Layout>
-        <SEO title={this.data.contentfulBlog.title} />
+        <SEO title={this.data.contentfulBlog.title} slug={this.data.contentfulBlog.slug} />
 
         <article>
 

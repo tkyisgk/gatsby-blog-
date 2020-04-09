@@ -21,7 +21,7 @@
     @include pc() {
       width: percentage(290/940);
 
-      &:nth-child(4) {
+      &:nth-child(n + 4) {
         margin-top: 40px;
       }
     }
@@ -29,7 +29,7 @@
     @include sp() {
       width: calc(50% - 7.5px);
 
-      &:nth-child(3) {
+      &:nth-child(n + 3) {
         margin-top: 25px;
       }
     }

@@ -7,7 +7,8 @@ module.exports = {
     title: `WEB AND ME`,
     description: `WEBと私の成長日記`,
     author: `@web_des_igner`,
-    image: `${__dirname}/static/assets/ogp.jpg`
+    url: `https://log.tkyisgk.com/`,
+    image: `https://log.tkyisgk.com/assets/ogp.jpg`
   },
   plugins: [
     `gatsby-plugin-sass`,
