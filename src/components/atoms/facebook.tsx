@@ -1,7 +1,11 @@
-import PropTypes from "prop-types"
 import React from "react"
 
-const Facebook = ({ iconColor, bgColor }) => (
+interface FacebookProps {
+  iconColor: string,
+  bgColor: string
+}
+
+const Facebook: React.FC<FacebookProps> = ({ iconColor = `#fff`, bgColor = `#000` }) => (
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 195 195.1">
     <g>
@@ -11,15 +15,5 @@ const Facebook = ({ iconColor, bgColor }) => (
   </svg>
 
 )
-
-Facebook.propTypes = {
-  iconColor: PropTypes.string,
-  bgColor: PropTypes.string
-}
-
-Facebook.defaultProps = {
-  iconColor: `#fff`,
-  bgColor: `#000`
-}
 
 export default Facebook

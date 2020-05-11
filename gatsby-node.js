@@ -25,7 +25,7 @@ exports.createPages = async gatsbyNodeHelpers => {
   result.data.allContentfulBlog.edges.forEach((item) => {
     createPage({
       path: item.node.slug,
-      component: path.resolve(`./src/templates/post.js`),
+      component: path.resolve(`./src/templates/post.tsx`),
       context: {
         slug: item.node.slug
       }

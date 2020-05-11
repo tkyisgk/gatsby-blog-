@@ -1,20 +1,33 @@
-import PropTypes from "prop-types"
-import React, { Component } from "react"
+import * as React from "react"
 
 import Tabs from '../molecules/tabs'
 import CardList from '../molecules/cardList'
 
-// import styles from './tabPostList.module.scss'
+interface TabPostListProps {
+  postList: Object[],
+  activeTag: string,
+  activeSlug: string
+}
 
-const TAB_TYPES = {
+type TabTypes = {
+  readonly LATEST: string,
+  readonly RELATED: string
+}
+
+type TabData = {
+  type: string,
+  content: string
+}[]
+
+const TAB_TYPES: TabTypes = {
   LATEST: 'latest',
   RELATED: 'related'
 }
 
-const tabData = [
+const tabData: TabData = [
   {
     type: TAB_TYPES.LATEST,
-    content: '最新の記事'
+    content: '最新の記事',
   },
   {
     type: TAB_TYPES.RELATED,
@@ -22,7 +35,7 @@ const tabData = [
   }
 ]
 
-class TabWrap extends Component {
+class TabWrap extends React.Component {
   static Latest = ({ tabType, children }) => tabType === TAB_TYPES.LATEST ? children : null
   static Related = ({ tabType, children }) => tabType === TAB_TYPES.RELATED ? children : null
   static Tabs = ({ tabType, changeTab }) => (
@@ -47,15 +60,16 @@ class TabWrap extends Component {
   }
 }
 
-const TabPostList = ({ postList, activeTag, activeId }) => {
+const TabPostList: React.FC<TabPostListProps> = ({ postList, activeTag, activeSlug }) => {
   const getLatest = () => {
-    return postList.filter(post => post.node.id !== activeId).slice(0, 3)
+    return postList.filter(post => post.node.slug !== activeSlug).slice(0, 3)
   }
 
   const getRelated = () => {
-    return postList.filter(post => post.node.tags[0] === activeTag && post.node.id !== activeId).slice(0, 3)
+    return postList.filter(post => post.node.tags[0] === activeTag && post.node.slug !== activeSlug).slice(0, 3)
   }
 
+  // @ts-ignore
   return (
     <TabWrap>
       <TabWrap.Tabs />
@@ -67,18 +81,6 @@ const TabPostList = ({ postList, activeTag, activeId }) => {
       </TabWrap.Related>
     </TabWrap>
   )
-}
-
-TabPostList.propTypes = {
-  postList: PropTypes.array,
-  activeTag: PropTypes.string,
-  activeId: PropTypes.string,
-}
-
-TabPostList.defaultProps = {
-  postList: [],
-  activeTag: '',
-  activeId: ''
 }
 
 export default TabPostList

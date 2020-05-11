@@ -1,12 +1,15 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
-
-import styles from './card.module.scss'
-
 import Image from "./image"
 
-const Card = ({ post, cardSize }) => {
+declare function require(x: string): any
+const styles = require('./card.module.scss')
+
+interface CardProps {
+  post: object
+}
+
+const Card: React.FC<CardProps> = ({ post }) => {
 
   const dateFomatter = (date) => {
     const year = new Date(date).getFullYear()
@@ -20,7 +23,7 @@ const Card = ({ post, cardSize }) => {
     <Link to={post.node.slug} className={styles.link}>
       <div className={styles.thumb}>
         {post.node.thumbnail ? (
-          <Image filename={post.node.thumbnail.localFile.name} />
+          <Image filename={post.node.thumbnail.localFile.name} alt="" />
         ) : ''}
       </div>
       <div className={styles.txtInr}>
@@ -29,16 +32,6 @@ const Card = ({ post, cardSize }) => {
       </div>
     </Link>
   )
-}
-
-Card.propTypes = {
-  post: PropTypes.object,
-  cardSize: PropTypes.string
-}
-
-Card.defaultProps = {
-  post: {},
-  cardSize: 'medium'
 }
 
 export default Card

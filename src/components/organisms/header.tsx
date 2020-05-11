@@ -1,11 +1,15 @@
 import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import React from "react"
-
-import styles from './header.module.scss'
+import * as React from "react"
 import Logo from '../atoms/logo'
 
-const Header = ({ siteTitle }) => (
+declare function require(x: string): any
+const styles = require('./header.module.scss')
+
+interface HeaderProps {
+  siteTitle: string
+}
+
+const Header: React.FC<HeaderProps> = ({ siteTitle }) => (
   <header className={styles.header} id="js-header">
     <div className={styles.inr}>
       <h1 className={styles.hdg}>
@@ -16,13 +20,5 @@ const Header = ({ siteTitle }) => (
     </div>
   </header>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
