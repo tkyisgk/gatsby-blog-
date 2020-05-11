@@ -1,39 +1,21 @@
-import React from "react"
+import * as React from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styles from "./index.module.scss"
-
 import CardList from '../components/molecules/cardList'
 import ProfileBox from '../components/molecules/profileBox'
 
-export const query = graphql`
-  query {
-    allContentfulBlog(
-      sort: {order: DESC, fields: createdAt}
-    ) {
-      edges {
-        node {
-          title,
-          slug,
-          createdAt,
-          updatedAt,
-          body {
-            body
-          },
-          thumbnail {
-            localFile {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`
+declare function require(x: string): any
+const styles = require('./index.module.scss')
 
-export default ({ data }) => {
+import { IndexPageTypeQuery } from "../../types/graphql-types"
+
+type IndexProps = {
+  data: IndexPageTypeQuery
+}
+
+const IndexPage: React.FC<IndexProps> = ({ data }) => {
   const blogList = data.allContentfulBlog.edges
   const largeList = blogList.slice(0, 2)
   const mediumList = blogList.slice(2)
@@ -60,3 +42,30 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+export const query = graphql`
+  query IndexPageType {
+    allContentfulBlog(
+      sort: {order: DESC, fields: createdAt}
+    ) {
+      edges {
+        node {
+          title,
+          slug,
+          createdAt,
+          updatedAt,
+          body {
+            body
+          },
+          thumbnail {
+            localFile {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
+export default IndexPage

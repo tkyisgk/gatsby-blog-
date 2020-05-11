@@ -1,7 +1,11 @@
-import PropTypes from "prop-types"
-import React from "react"
+import * as React from "react"
 
-const Twitter = ({ iconColor, bgColor }) => (
+interface TwitterProps {
+  iconColor?: string,
+  bgColor?: string
+}
+
+const Twitter: React.FC<TwitterProps> = ({ iconColor = `#1DA1F2`, bgColor = `#FFFFFF` }) => (
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
     <g fill={bgColor}>
@@ -13,15 +17,5 @@ const Twitter = ({ iconColor, bgColor }) => (
   </svg>
 
 )
-
-Twitter.propTypes = {
-  iconColor: PropTypes.string,
-  bgColor: PropTypes.string
-}
-
-Twitter.defaultProps = {
-  iconColor: `#1DA1F2`,
-  bgColor: `#FFFFFF`
-}
 
 export default Twitter

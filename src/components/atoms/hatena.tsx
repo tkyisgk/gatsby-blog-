@@ -1,7 +1,11 @@
-import PropTypes from "prop-types"
-import React from "react"
+import * as React from "react"
 
-const Hatena = ({ iconColor, bgColor }) => (
+interface HatenaProps {
+  iconColor: string,
+  bgColor: string
+}
+
+const Hatena: React.FC<HatenaProps> = ({ iconColor = `#fff`, bgColor = `#00a4de` }) => (
 
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
     <rect width="500" height="500" rx="101.9" ry="101.9" fill={bgColor} />
@@ -13,15 +17,5 @@ const Hatena = ({ iconColor, bgColor }) => (
   </svg>
 
 )
-
-Hatena.propTypes = {
-  iconColor: PropTypes.string,
-  bgColor: PropTypes.string
-}
-
-Hatena.defaultProps = {
-  iconColor: `#fff`,
-  bgColor: `#00a4de`
-}
 
 export default Hatena

@@ -1,8 +1,9 @@
-import React from "react"
+import * as React from "react"
 
-import styles from "./footer.module.scss"
+declare function require(x: string): any
+const styles = require('./footer.module.scss')
 
-const Layout = () => {
+const Layout: React.FC = () => {
 
   return (
     <footer className={styles.footer}>

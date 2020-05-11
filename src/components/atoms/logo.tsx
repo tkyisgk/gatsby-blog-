@@ -1,9 +1,11 @@
-import PropTypes from "prop-types"
-import React from "react"
+import * as React from "react"
 
-// import styles from './logo.module.scss'
+interface LogoProps {
+  siteTitle: string,
+  color?: string
+}
 
-const Logo = ({ siteTitle, color }) => (
+const Logo: React.FC<LogoProps> = ({ siteTitle, color = `#000` }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86.12 8.59">
     <title>{siteTitle}</title>
     <g fill={color}>
@@ -18,15 +20,5 @@ const Logo = ({ siteTitle, color }) => (
     </g>
   </svg>
 )
-
-Logo.propTypes = {
-  siteTitle: PropTypes.string,
-  color: PropTypes.string
-}
-
-Logo.defaultProps = {
-  siteTitle: ``,
-  color: `#000`
-}
 
 export default Logo

@@ -1,9 +1,14 @@
-import React from 'react'
+import * as React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+interface ImageProps {
+  filename: string,
+  alt?: string
+}
+
 // 画像ファイルパスをプロパティに取るようなコンポーネントを定義
-export default ({ filename, alt }) => (
+const Image: React.FC<ImageProps> = ({ filename, alt }) => (
 
   // ページじゃないコンポーネントでもGraphQLが使えるように
   // StaticQueryタグを使う
@@ -45,3 +50,5 @@ export default ({ filename, alt }) => (
     }}
   />
 )
+
+export default Image
