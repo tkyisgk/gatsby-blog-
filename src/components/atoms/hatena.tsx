@@ -1,8 +1,8 @@
 import * as React from "react"
 
-interface HatenaProps {
-  iconColor: string,
-  bgColor: string
+type HatenaProps = {
+  iconColor?: string,
+  bgColor?: string
 }
 
 const Hatena: React.FC<HatenaProps> = ({ iconColor = `#fff`, bgColor = `#00a4de` }) => (

@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import SeoTypeQuery from '../../types/graphql-types.d'
 
-interface SEOProps {
+type SEOProps = {
   title: string,
   description?: string,
   lang?: string,

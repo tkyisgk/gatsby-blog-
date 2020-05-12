@@ -1,6 +1,6 @@
 import * as React from "react"
 
-interface LogoProps {
+type LogoProps = {
   siteTitle: string,
   color?: string
 }

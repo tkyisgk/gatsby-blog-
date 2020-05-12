@@ -1,6 +1,6 @@
 import * as React from "react"
 
-interface TwitterProps {
+type TwitterProps = {
   iconColor?: string,
   bgColor?: string
 }

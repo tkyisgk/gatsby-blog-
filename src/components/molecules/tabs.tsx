@@ -8,7 +8,7 @@ type TabData = {
   content: string
 }
 
-interface TabsProps {
+type TabsProps =  {
   currentTabType: string,
   tabData: TabData[],
   onClick(string): void
