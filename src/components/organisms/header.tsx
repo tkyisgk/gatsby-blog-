@@ -5,7 +5,7 @@ import Logo from '../atoms/logo'
 declare function require(x: string): any
 const styles = require('./header.module.scss')
 
-interface HeaderProps {
+type HeaderProps = {
   siteTitle: string
 }
 

@@ -3,8 +3,10 @@ import * as React from "react"
 import Tabs from '../molecules/tabs'
 import CardList from '../molecules/cardList'
 
-interface TabPostListProps {
-  postList: Object[],
+import { ContentfulBlogTypeQuery } from '../../../types/contentful-blog-types.d'
+
+type TabPostListProps = {
+  postList: ContentfulBlogTypeQuery[],
   activeTag: string,
   activeSlug: string
 }

@@ -5,8 +5,8 @@ const styles = require('./tagList.module.scss')
 
 import Tag from '../atoms/tag'
 
-interface TagListProps {
-  tagList?: string[]
+type TagListProps = {
+  tagList: string[]
 }
 
 const TagList: React.FC<TagListProps> = ({ tagList }) => {

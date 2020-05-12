@@ -8,7 +8,7 @@ import Hatena from '../atoms/hatena'
 declare function require(x: string): any
 const styles = require('./shareSNS.module.scss')
 
-interface ShareSNSProps {
+type ShareSNSProps = {
   title: string
 }
 

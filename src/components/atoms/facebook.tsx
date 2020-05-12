@@ -1,8 +1,8 @@
 import React from "react"
 
-interface FacebookProps {
-  iconColor: string,
-  bgColor: string
+type FacebookProps = {
+  iconColor?: string,
+  bgColor?: string
 }
 
 const Facebook: React.FC<FacebookProps> = ({ iconColor = `#fff`, bgColor = `#000` }) => (

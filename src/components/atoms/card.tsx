@@ -2,11 +2,13 @@ import { Link } from "gatsby"
 import React from "react"
 import Image from "./image"
 
+import { ContentfulBlogTypeQuery } from '../../../types/contentful-blog-types.d'
+
 declare function require(x: string): any
 const styles = require('./card.module.scss')
 
-interface CardProps {
-  post: object
+type CardProps = {
+  post: ContentfulBlogTypeQuery
 }
 
 const Card: React.FC<CardProps> = ({ post }) => {

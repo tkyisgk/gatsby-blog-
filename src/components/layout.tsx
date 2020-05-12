@@ -14,7 +14,7 @@ import Footer from './organisms/footer'
 declare function require(x: string): any
 const styles = require('./layout.module.scss')
 
-interface LayoutProps {
+type LayoutProps = {
   children: React.ReactNode
 }
 

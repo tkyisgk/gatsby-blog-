@@ -1,12 +1,13 @@
 import * as React from "react"
+import Card from '../atoms/card'
+
+import { ContentfulBlogTypeQuery } from '../../../types/contentful-blog-types.d'
 
 declare function require(x: string): any
 const styles = require('./cardList.module.scss')
 
-import Card from '../atoms/card'
-
-interface CardListProps {
-  postList: Object[],
+type CardListProps = {
+  postList: ContentfulBlogTypeQuery[],
   cardSize?: string
 }
 
