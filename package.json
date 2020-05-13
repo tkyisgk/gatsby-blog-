@@ -1,9 +1,11 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "web-and-me",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "takuya ishigaki <tky.isgk@gmail.com>",
+  "engines": {
+    "node": ">=10.13.0"
+  },
   "dependencies": {
     "@types/react-helmet": "^5.0.15",
     "cross-env": "^7.0.0",
@@ -36,7 +38,8 @@
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "typescript"
   ],
   "license": "MIT",
   "scripts": {
@@ -47,12 +50,5 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
