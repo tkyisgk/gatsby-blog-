@@ -4386,11 +4386,11 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>;
 };
 
-export type Unnamed_1_QueryVariables = {};
+export type AllImageTypeQueryVariables = {};
 
 
-export type Unnamed_1_Query = { images: { edges: Array<{ node: (
-        Pick<File, 'relativePath' | 'name'>
+export type AllImageTypeQuery = { images: { edges: Array<{ node: (
+        Pick<File, 'publicURL' | 'base'>
         & { childImageSharp?: Maybe<{ sizes?: Maybe<GatsbyImageSharpSizesFragment> }> }
       ) }> } };
 
@@ -4399,10 +4399,10 @@ export type SiteTitleQueryQueryVariables = {};
 
 export type SiteTitleQueryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
-export type Unnamed_2_QueryVariables = {};
+export type Unnamed_1_QueryVariables = {};
 
 
-export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
+export type Unnamed_1_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }> };
 
 export type SeoTypeQueryVariables = {};
 
@@ -4414,7 +4414,7 @@ export type IndexPageTypeQueryVariables = {};
 
 export type IndexPageTypeQuery = { allContentfulBlog: { edges: Array<{ node: (
         Pick<ContentfulBlog, 'title' | 'slug' | 'createdAt' | 'updatedAt'>
-        & { body?: Maybe<Pick<ContentfulBlogBodyTextNode, 'body'>>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'name'>> }> }
+        & { body?: Maybe<Pick<ContentfulBlogBodyTextNode, 'body'>>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'publicURL'>> }> }
       ) }> } };
 
 export type PostTemplateTypeQueryVariables = {
@@ -4424,10 +4424,10 @@ export type PostTemplateTypeQueryVariables = {
 
 export type PostTemplateTypeQuery = { contentfulBlog?: Maybe<(
     Pick<ContentfulBlog, 'createdAt' | 'slug' | 'title' | 'updatedAt' | 'tags'>
-    & { body?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'name'>> }> }
+    & { body?: Maybe<{ childMarkdownRemark?: Maybe<Pick<MarkdownRemark, 'html'>> }>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'publicURL'>> }> }
   )>, allContentfulBlog: { edges: Array<{ node: (
         Pick<ContentfulBlog, 'title' | 'slug' | 'createdAt' | 'updatedAt' | 'tags'>
-        & { body?: Maybe<Pick<ContentfulBlogBodyTextNode, 'body'>>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'name'>> }> }
+        & { body?: Maybe<Pick<ContentfulBlogBodyTextNode, 'body'>>, thumbnail?: Maybe<{ localFile?: Maybe<Pick<File, 'publicURL'>> }> }
       ) }> } };
 
 export type GatsbyContentfulFixedFragment = Pick<ContentfulFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
