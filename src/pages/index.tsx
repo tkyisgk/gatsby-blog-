@@ -59,7 +59,7 @@ export const query = graphql`
           },
           thumbnail {
             localFile {
-              name
+              publicURL
             }
           }
         }

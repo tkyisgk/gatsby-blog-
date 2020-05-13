@@ -107,7 +107,7 @@ class Posts extends React.Component {
               {createUpdateDate()}
             </p>
             <div className={styles.thumb}>
-              <Image filename={this.data.contentfulBlog.thumbnail.localFile.name} alt={''} />
+              <Image publicURL={this.data.contentfulBlog.thumbnail.localFile.publicURL} alt={''} />
             </div>
           </div>
 
@@ -152,7 +152,7 @@ export const query = graphql`
       },
       thumbnail {
         localFile {
-          name
+          publicURL
         }
       }
     },
@@ -171,7 +171,7 @@ export const query = graphql`
           },
           thumbnail {
             localFile {
-              name
+              publicURL
             }
           }
         }

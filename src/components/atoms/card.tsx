@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ post }) => {
     <Link to={post.node.slug} className={styles.link}>
       <div className={styles.thumb}>
         {post.node.thumbnail ? (
-          <Image filename={post.node.thumbnail.localFile.name} alt="" />
+          <Image publicURL={post.node.thumbnail.localFile.publicURL} alt="" />
         ) : ''}
       </div>
       <div className={styles.txtInr}>
