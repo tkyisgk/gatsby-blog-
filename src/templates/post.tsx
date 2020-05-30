@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
@@ -14,25 +14,11 @@ const styles = require('./post.module.scss')
 
 import { PostTemplateTypeQuery } from '../../types/graphql-types.d'
 
-class Posts extends React.Component {
+const Posts = ({ data }) => {
 
-  private data: PostTemplateTypeQuery
+  const postData: PostTemplateTypeQuery = data
 
-  constructor(args) {
-    super(args)
-
-    this.data = args.data
-  }
-
-  componentDidMount(): void {
-    this.addScrollEvent()
-  }
-
-  componentWillUnmount(): void {
-    this.removeScrollEvent()
-  }
-
-  scrollFunc(): void {
+  const scrollFunc = (): void => {
     const targetEl: HTMLElement = document.getElementById('js-aside')
     const windowTop: number = window.pageYOffset
     const headerH: number = document.getElementById('js-header').clientHeight
@@ -50,7 +36,7 @@ class Posts extends React.Component {
     }
 
     // SPの場合
-    if (!isPC()) {
+    if(!isPC()) {
       refresh()
       return
     }
@@ -68,73 +54,67 @@ class Posts extends React.Component {
     }
   }
 
-  addScrollEvent(): void {
-    document.addEventListener('scroll', this.scrollFunc)
+  const dateFomatter = (date) => {
+    const year = new Date(date).getFullYear()
+    const month = new Date(date).getMonth() + 1
+    const day = new Date(date).getDate()
+
+    return `${year}.${month}.${day}`
   }
 
-  removeScrollEvent(): void {
-    document.removeEventListener('scroll', this.scrollFunc)
+  const createUpdateDate = () => {
+    if (postData.contentfulBlog.createdAt.split('T')[0] !== postData.contentfulBlog.updatedAt.split('T')[0]) {
+      return (
+        <span className={styles.updateDate}>(更新日:{dateFomatter(postData.contentfulBlog.updatedAt)})</span>
+      )
+    }
   }
 
-  render() {
+  useEffect(() => {
+    document.addEventListener('scroll', scrollFunc)
+    return  () => document.removeEventListener('scroll', scrollFunc)
+  })
 
-    const dateFomatter = (date) => {
-      const year = new Date(date).getFullYear()
-      const month = new Date(date).getMonth() + 1
-      const day = new Date(date).getDate()
+  return (
+    <Layout>
+      <SEO title={postData.contentfulBlog.title} slug={postData.contentfulBlog.slug} />
 
-      return `${year}.${month}.${day}`
-    }
+      <article>
 
-    const createUpdateDate = () => {
-      if (this.data.contentfulBlog.createdAt.split('T')[0] !== this.data.contentfulBlog.updatedAt.split('T')[0]) {
-        return (
-          <span className={styles.updateDate}>(更新日:{dateFomatter(this.data.contentfulBlog.updatedAt)})</span>
-        )
-      }
-    }
+        <div className={styles.head}>
+          <h1 className={styles.hdg1}>{postData.contentfulBlog.title}</h1>
+          <p className={styles.date}>
+            {dateFomatter(postData.contentfulBlog.createdAt)}
+            {createUpdateDate()}
+          </p>
+          <div className={styles.thumb}>
+            <Image publicURL={postData.contentfulBlog.thumbnail.localFile.publicURL} alt={''} />
+          </div>
+        </div>
 
-    return (
-      <Layout>
-        <SEO title={this.data.contentfulBlog.title} slug={this.data.contentfulBlog.slug} />
+        <div className={styles.content}>
+          <main className={styles.main}>
+            <div className={styles.article} dangerouslySetInnerHTML={{ __html: postData.contentfulBlog.body.childMarkdownRemark.html }} />
 
-        <article>
-
-          <div className={styles.head}>
-            <h1 className={styles.hdg1}>{this.data.contentfulBlog.title}</h1>
-            <p className={styles.date}>
-              {dateFomatter(this.data.contentfulBlog.createdAt)}
-              {createUpdateDate()}
-            </p>
-            <div className={styles.thumb}>
-              <Image publicURL={this.data.contentfulBlog.thumbnail.localFile.publicURL} alt={''} />
+            <div className={styles.catWrap}>
+              <TagList tagList={postData.contentfulBlog.tags} />
             </div>
-          </div>
-
-          <div className={styles.content}>
-            <main className={styles.main}>
-              <div className={styles.article} dangerouslySetInnerHTML={{ __html: this.data.contentfulBlog.body.childMarkdownRemark.html }} />
-
-              <div className={styles.catWrap}>
-                <TagList tagList={this.data.contentfulBlog.tags} />
-              </div>
-            </main>
-            <aside className={styles.side} id="js-aside">
-              <ShareSNS title={this.data.contentfulBlog.title} />
-            </aside>
-          </div>
-
-        </article>
-
-        <div className={styles.tabWrap}>
-          <TabPostList postList={this.data.allContentfulBlog.edges} activeTag={this.data.contentfulBlog.tags[0]} activeSlug={this.data.contentfulBlog.slug} />
+          </main>
+          <aside className={styles.side} id="js-aside">
+            <ShareSNS title={postData.contentfulBlog.title} />
+          </aside>
         </div>
-        <div className={styles.prifileWrap}>
-          <ProfileBox />
-        </div>
-      </Layout>
-    )
-  }
+
+      </article>
+
+      <div className={styles.tabWrap}>
+        <TabPostList postList={postData.allContentfulBlog.edges} activeTag={postData.contentfulBlog.tags[0]} activeSlug={postData.contentfulBlog.slug} />
+      </div>
+      <div className={styles.prifileWrap}>
+        <ProfileBox />
+      </div>
+    </Layout>
+  )
 }
 
 export const query = graphql`
