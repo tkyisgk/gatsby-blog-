@@ -13,16 +13,8 @@ type CardProps = {
 
 const Card: React.FC<CardProps> = ({ post }) => {
 
-  const dateFomatter = (date) => {
-    const year = new Date(date).getFullYear()
-    const month = new Date(date).getMonth() + 1
-    const day = new Date(date).getDate()
-
-    return `${year}.${month}.${day}`
-  }
-
   return (
-    <Link to={post.node.slug} className={styles.link}>
+    <Link to={`${post.node.slug}/`} className={styles.link}>
       <div className={styles.thumb}>
         {post.node.thumbnail ? (
           <Image publicURL={post.node.thumbnail.localFile.publicURL} alt="" />
@@ -30,7 +22,7 @@ const Card: React.FC<CardProps> = ({ post }) => {
       </div>
       <div className={styles.txtInr}>
         <h3 className={styles.title}>{post.node.title}</h3>
-        <span className={styles.date}>{dateFomatter(post.node.createdAt)}</span>
+        <span className={styles.date}>{post.node.createdAt}</span>
       </div>
     </Link>
   )

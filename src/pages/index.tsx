@@ -50,10 +50,10 @@ export const query = graphql`
     ) {
       edges {
         node {
-          title,
-          slug,
-          createdAt,
-          updatedAt,
+          title
+          slug
+          createdAt(formatString: "YYYY.MM.DD")
+          updatedAt(formatString: "YYYY.MM.DD")
           body {
             body
           },

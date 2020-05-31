@@ -54,18 +54,10 @@ const Posts = ({ data }) => {
     }
   }
 
-  const dateFomatter = (date) => {
-    const year = new Date(date).getFullYear()
-    const month = new Date(date).getMonth() + 1
-    const day = new Date(date).getDate()
-
-    return `${year}.${month}.${day}`
-  }
-
   const createUpdateDate = () => {
-    if (postData.contentfulBlog.createdAt.split('T')[0] !== postData.contentfulBlog.updatedAt.split('T')[0]) {
+    if (postData.contentfulBlog.createdAt !== postData.contentfulBlog.updatedAt) {
       return (
-        <span className={styles.updateDate}>(更新日:{dateFomatter(postData.contentfulBlog.updatedAt)})</span>
+        <span className={styles.updateDate}>(更新日:{postData.contentfulBlog.updatedAt})</span>
       )
     }
   }
@@ -84,7 +76,7 @@ const Posts = ({ data }) => {
         <div className={styles.head}>
           <h1 className={styles.hdg1}>{postData.contentfulBlog.title}</h1>
           <p className={styles.date}>
-            {dateFomatter(postData.contentfulBlog.createdAt)}
+            {postData.contentfulBlog.createdAt}
             {createUpdateDate()}
           </p>
           <div className={styles.thumb}>
@@ -120,22 +112,22 @@ const Posts = ({ data }) => {
 export const query = graphql`
   query PostTemplateType($slug: String!) {
     contentfulBlog(slug: {eq: $slug}) {
-      createdAt
+      createdAt(formatString: "YYYY.MM.DD")
       slug
       title
-      updatedAt,
-      tags,
+      updatedAt(formatString: "YYYY.MM.DD")
+      tags
       body {
         childMarkdownRemark {
           html
         }
-      },
+      }
       thumbnail {
         localFile {
           publicURL
         }
       }
-    },
+    }
     allContentfulBlog(
       sort: {order: DESC, fields: createdAt}
     ) {
