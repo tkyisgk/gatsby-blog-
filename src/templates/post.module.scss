@@ -6,11 +6,11 @@
   line-height: 1.2;
 
   @include pc() {
-    font-size: 5.6rem;
+    font-size: 4.2rem;
   }
 
   @include sp() {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
   }
 }
 
@@ -80,7 +80,7 @@
   }
 
   @include sp() {
-    padding: 18px 0 30px;
+    padding: 18px 0 60px;
     width: 100%;
   }
 
@@ -88,12 +88,16 @@
     margin-bottom: 0;
   }
 
-  p {
+  & > h2 {
+    margin-top: 0 !important;
+  }
+
+  p  {
     @include pc() {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
     @include sp() {
-      margin-bottom: 10px;
+      margin-bottom: 34px;
     }
   }
 
@@ -104,15 +108,15 @@
     border-bottom: 1px dashed $crl-dark-grey;
 
     @include pc() {
-      margin: 50px 0 30px;
+      margin: 60px 0 15px;
       padding-bottom: 12px;
-      font-size: 3.2rem;
+      font-size: 3.0rem;
     }
 
     @include sp() {
-      margin: 25px 0 15px;
+      margin: 60px 0 10px;
       padding-bottom: 6px;
-      font-size: 2.2rem;
+      font-size: 2.0rem;
     }
   }
 
@@ -134,12 +138,13 @@
     }
   }
 
+  ol,
   ul {
     @include pc() {
-      margin: 40px 0 40px 30px;
+      margin: 40px 0 40px 40px;
     }
     @include sp() {
-      margin: 25px 0 25px 15px;
+      margin: 34px 0 34px 25px;
     }
   }
 

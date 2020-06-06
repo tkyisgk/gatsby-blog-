@@ -6,8 +6,6 @@
 
 .gatsby-code-title {
   display: inline-block;
-  font-weight: 900;
-  font-style: italic;
   color: #EFEFEF;
   background-color: $crl-black;
 
@@ -16,13 +14,13 @@
     font-size: 1.4rem;
   }
   @include sp() {
-    padding: 0.25em 0.5em;
+    padding: 6px 12px;
     font-size: 1.1rem;
   }
 }
 
 .gatsby-highlight {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 code[class*="language-"],
