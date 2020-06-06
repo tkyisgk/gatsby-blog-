@@ -8,13 +8,14 @@ import ShareSNS from '../components/molecules/shareSNS'
 import ProfileBox from '../components/molecules/profileBox'
 import TagList from '../components/molecules/tagList'
 import TabPostList from '../components/organisms/tabPostList'
+import Disqus from 'gatsby-plugin-disqus'
 
 declare function require(x: string): any
 const styles = require('./post.module.scss')
 
 import { PostTemplateTypeQuery } from '../../types/graphql-types.d'
 
-const Posts = ({ data }) => {
+const Posts = ({ data, location }) => {
 
   const postData: PostTemplateTypeQuery = data
 
@@ -99,6 +100,14 @@ const Posts = ({ data }) => {
 
       </article>
 
+      <div className={styles.comment}>
+        <Disqus
+          url={location.href}
+          identifier={postData.contentfulBlog.title}
+          title={`${postData.contentfulBlog.title} | ${data.site.siteMetadata.title}`}
+        />
+      </div>
+
       <div className={styles.tabWrap}>
         <TabPostList postList={postData.allContentfulBlog.edges} activeTag={postData.contentfulBlog.tags[0]} activeSlug={postData.contentfulBlog.slug} />
       </div>
@@ -147,6 +156,11 @@ export const query = graphql`
             }
           }
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

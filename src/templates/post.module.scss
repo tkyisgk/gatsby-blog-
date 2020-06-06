@@ -177,6 +177,16 @@
   }
 }
 
+.comment {
+  @include pc() {
+    margin-top: 100px;
+  }
+  @include sp() {
+    margin-top: 50px;
+  }
+}
+
+
 .tabWrap {
   @include pc() {
     margin-top: 100px;
