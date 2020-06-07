@@ -57,6 +57,9 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: "gatsby-remark-external-links",
+          },
+          {
             resolve: 'gatsby-remark-code-titles'
           },
           {

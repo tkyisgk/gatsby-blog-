@@ -17,7 +17,7 @@ const ProfileBox: React.FC = () => {
         <h3 className={styles.hdg}>石垣 琢也</h3>
         <p className={styles.desc}>
           都内のインタラクティブエージェンシーに勤めるフロントエンドエンジニアです。<br />
-          Javascriptが好きです。コーヒーと音楽と自転車が好きです。
+          Javascriptとコーヒーと音楽と自転車が好きです。
         </p>
         <a
           href="http://tkyisgk.com/"
