@@ -3940,8 +3940,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___noInlineHighlight'
   | 'pluginCreator___pluginOptions___trackingId'
   | 'pluginCreator___pluginOptions___fileName'
-  | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___shortname'
+  | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
   | 'pluginCreator___ssrAPIs'
@@ -4155,8 +4155,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___noInlineHighlight'
   | 'pluginOptions___trackingId'
   | 'pluginOptions___fileName'
-  | 'pluginOptions___pathCheck'
   | 'pluginOptions___shortname'
+  | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
   | 'ssrAPIs'
@@ -4290,8 +4290,8 @@ export type SitePluginPluginOptions = {
   noInlineHighlight?: Maybe<Scalars['Boolean']>;
   trackingId?: Maybe<Scalars['String']>;
   fileName?: Maybe<Scalars['String']>;
-  pathCheck?: Maybe<Scalars['Boolean']>;
   shortname?: Maybe<Scalars['String']>;
+  pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -4313,8 +4313,8 @@ export type SitePluginPluginOptionsFilterInput = {
   noInlineHighlight?: Maybe<BooleanQueryOperatorInput>;
   trackingId?: Maybe<StringQueryOperatorInput>;
   fileName?: Maybe<StringQueryOperatorInput>;
-  pathCheck?: Maybe<BooleanQueryOperatorInput>;
   shortname?: Maybe<StringQueryOperatorInput>;
+  pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsPlugins = {
